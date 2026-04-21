@@ -1,17 +1,20 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        //creating instance of JFrame
-        JFrame f= new JFrame();
+    public static void main(String[] args) throws Exception {
+        Scanner input = new Scanner(System.in);
+        String[] wordArray = input.nextLine().split(" ");
 
-        JButton b1 = new JButton("Hello, World!");
-        b1.setBounds(90, 100, 180, 40);
-        f.add(b1);
+        System.out.println();
 
-        f.setSize(400, 400);
-        f.setLayout(null);
-        f.setVisible(true);
+        String story = "";
+
+        for (int i = 0; i < wordArray.length/2; i++)
+        {
+            System.out.print(wordArray[i]);
+            System.out.print(" ");
+        }
+
+        input.close();
     }
 }
