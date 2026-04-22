@@ -13,6 +13,7 @@ public class App {
         {
             System.out.print(wordArray[i]);
             System.out.print(" ");
+            story = story + wordArray[i] + " ";
         }
 
         input.close();
