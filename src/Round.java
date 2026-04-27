@@ -12,6 +12,7 @@ public class Round {
         players = new Player[playerCount];
         for (int i = 0; i < playerCount; i++)
         {
+            System.out.println("What is Player " + (i + 1) + "'s name?: ");
             players[i] = new Player(userText.next());
         }
 
@@ -20,10 +21,13 @@ public class Round {
     public void PlayRound()
     {
         Scanner input = new Scanner(System.in);
+        int finalRound = 2;
 
         //tracks the rounds
-        for (int i = 1; i < rounds; i++)
+        for (int i = 1; i <= rounds; i++)
         {
+            System.out.println("Round " + i + " Begin!");
+            System.out.println();
             //tracks what player is currently typing
             for (int h = 0; h < players.length; h++)
             {
@@ -32,23 +36,30 @@ public class Round {
                 {
                     System.out.println("Please type the start of your story: ");
                 }
+                else if (i == rounds)
+                {
+                    System.out.println("Please finish this story: ");
+                    System.out.println(players[(h + i) % players.length].getStory());
+                }
                 else
                 {
                     System.out.println("Please continue this story: ");
-                    System.out.println("");
+                    System.out.println(players[(h + i) % players.length].getStory());
                 }
                 String[] wordArray = input.nextLine().split(" ");
 
                 System.out.println();
 
-                //writes half of the words of the input text to the player's class
-                for (int j = 0; j < wordArray.length/2; j++)
+                //doesn't erase last half if its the last round.
+                if (i == rounds)
                 {
-                    //essentially for testing, should be removed later
-                    System.out.print(wordArray[j]);
-                    System.out.print(" ");
+                    finalRound = 0;
+                }
 
-                    players[h].addToStory(wordArray[j] + " ");
+                //writes half of the words of the input text to the player's class
+                for (int j = 0; j < wordArray.length/finalRound; j++)
+                {
+                    players[(h + i) % players.length].addToStory(wordArray[j] + " ");
                 }
             }
         }

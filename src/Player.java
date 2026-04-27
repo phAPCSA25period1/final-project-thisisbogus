@@ -18,4 +18,14 @@ public class Player {
     {
         points += additionalPoints;
     }
+
+    public void addToStory(String additionalStory)
+    {
+        story = story + additionalStory;
+    }
+
+    public String getStory()
+    {
+        return story;
+    }
 }
