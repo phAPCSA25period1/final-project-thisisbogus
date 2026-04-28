@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Round {
@@ -34,16 +35,16 @@ public class Round {
                 //decides whether to start the story or not
                 if (i == 1)
                 {
-                    System.out.println("Please type the start of your story: ");
+                    System.out.println(players[h].getName() + ", please type the start of your story: ");
                 }
                 else if (i == rounds)
                 {
-                    System.out.println("Please finish this story: ");
+                    System.out.println(players[h].getName() + ", please finish this story: ");
                     System.out.println(players[(h + i) % players.length].getStory());
                 }
                 else
                 {
-                    System.out.println("Please continue this story: ");
+                    System.out.println(players[h].getName() + ", please continue this story: ");
                     System.out.println(players[(h + i) % players.length].getStory());
                 }
                 String[] wordArray = input.nextLine().split(" ");
@@ -53,13 +54,42 @@ public class Round {
                 //doesn't erase last half if its the last round.
                 if (i == rounds)
                 {
-                    finalRound = 0;
+                    finalRound = 1;
                 }
 
                 //writes half of the words of the input text to the player's class
                 for (int j = 0; j < wordArray.length/finalRound; j++)
                 {
                     players[(h + i) % players.length].addToStory(wordArray[j] + " ");
+                }
+            }
+        }
+
+        int pointsGiven = 0;
+        for (int i = 0; i < players.length; i++)
+        {
+            System.out.println(players[i].getStory());
+            for (int h = 0; h < players.length; h++)
+            {
+
+                System.out.print(players[h].getName() + ", please rate this story 1-10: ");
+                try {
+                pointsGiven = input.nextInt();
+                System.out.println();
+                }
+                catch (InputMismatchException a) {
+                    System.out.println("Please input a proper integer");
+                    h--;
+                }
+
+                if (pointsGiven <= 10 && pointsGiven > 0)
+                {
+                    players[i].addPoints(pointsGiven);
+                }
+                else
+                {
+                    System.out.println("Please input 1-10.");
+                    h--;
                 }
             }
         }
