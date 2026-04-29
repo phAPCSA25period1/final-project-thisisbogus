@@ -28,4 +28,9 @@ public class Player {
     {
         return story;
     }
+
+    public int getPoints()
+    {
+        return points;
+    }
 }
