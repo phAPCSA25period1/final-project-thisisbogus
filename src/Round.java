@@ -7,6 +7,7 @@ public class Round {
     public int round = 1;
     private Player[] players;
 
+
     public Round(int roundCount, int playerCount, Scanner userText)
     {
         rounds = roundCount;
@@ -16,6 +17,9 @@ public class Round {
             System.out.println("What is Player " + (i + 1) + "'s name?: ");
             players[i] = new Player(userText.next());
         }
+
+        Object testObject = players[0];
+        System.out.println(((Player) testObject).getName() + " DID IT WORK");
 
     }
 
