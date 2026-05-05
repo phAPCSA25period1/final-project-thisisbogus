@@ -1,36 +1,37 @@
 public class Player {
 
-    private String name;
-    private int points = 0;
-    private String story = "";
+    private Object[][] playerObjects;
 
     public Player(String givenName)
     {
-        name = givenName;
+        playerObjects = new Object[3][1];
+        playerObjects[0][0] = givenName;
+        playerObjects[1][0] = 0;
+        playerObjects[2][0] = "";
     }
 
     public String getName()
     {
-        return name;
+        return (String) playerObjects[0][0];
     }
 
     public void addPoints(int additionalPoints)
     {
-        points += additionalPoints;
+        playerObjects[1][0] = ((int) playerObjects[1][0]) + additionalPoints;
     }
 
     public void addToStory(String additionalStory)
     {
-        story = story + additionalStory;
+        playerObjects[2][0] = ((String) playerObjects[2][0]) + additionalStory;
     }
 
     public String getStory()
     {
-        return story;
+        return (String) playerObjects[2][0];
     }
 
     public int getPoints()
     {
-        return points;
+        return (int) playerObjects[1][0];
     }
 }
