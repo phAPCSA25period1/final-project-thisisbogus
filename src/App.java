@@ -15,6 +15,7 @@ public class App {
         rounds = input.nextInt();
         System.out.println();
 
+        //creates the game and plays it
         Round game = new Round(rounds, players, input);
         game.PlayRound();
 

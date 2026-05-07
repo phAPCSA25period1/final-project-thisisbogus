@@ -1,4 +1,3 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -97,15 +96,7 @@ public class Round {
             {
 
                 System.out.println(players[h].getName() + ", please rate this story 1-10: ");
-                try {
-                pointsGiven = input.nextInt();
-                System.out.println();
-                }
-                catch (InputMismatchException a) {
-                    System.out.println("Please input a proper integer");
-                    System.out.println();
-                    input.next();
-                }
+                pointsGiven = TryCatch.tryInt(input);
 
                 if (pointsGiven <= 10 && pointsGiven > 0)
                 {
