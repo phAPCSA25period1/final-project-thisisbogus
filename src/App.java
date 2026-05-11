@@ -8,11 +8,11 @@ public class App {
 
         //gets the desired amount of players and rounds
         System.out.println("How many players are there?: ");
-        players = input.nextInt();
+        players = TryCatch.tryInt(input);
         System.out.println();
 
         System.out.println("How many rounds would you like?: ");
-        rounds = input.nextInt();
+        rounds = TryCatch.tryInt(input);
         System.out.println();
 
         //creates the game and plays it

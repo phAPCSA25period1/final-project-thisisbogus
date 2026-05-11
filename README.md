@@ -21,6 +21,10 @@ Jeff
 ```
 The players can then each write segments of a story each round. Don't finish the story until it tells you to. There's a certain fun element, but that's a surprise!
 
+## Diagram
+
+![alt text](images/classDiagram.png "Final Project Diagram")
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
